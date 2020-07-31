@@ -53,10 +53,12 @@ public class CarService {
          *   Remove the below code as part of your implementation.
          */
         Car car = new Car();
-        Optional<Car> optionalCar = Optional.ofNullable(repository.findById(id)).orElseThrow(CarNotFoundException::new);
-        if(optionalCar.isPresent()) {
+        Optional<Car> optionalCar = repository.findById(id);
+        if(optionalCar.isPresent()){
             car = optionalCar.get();
         }
+//        else throw new CarNotFoundException();
+
 
         /**
          * TODO: Use the Pricing Web client you create in `VehiclesApiApplication`
@@ -105,9 +107,11 @@ public class CarService {
      */
     public void delete(Long id) {
 
-        Optional<Car> optionalCar = Optional.ofNullable(repository.findById(id)).orElseThrow(CarNotFoundException::new);
+        Optional<Car> optionalCar = repository.findById(id);
         Car car;
-        car = optionalCar.get();
+        if(optionalCar.isPresent()){
+            car = optionalCar.get();
+        }else throw new CarNotFoundException();
         /**
          * TODO: Find the car by ID from the `repository` if it exists.
          *   If it does not exist, throw a CarNotFoundException

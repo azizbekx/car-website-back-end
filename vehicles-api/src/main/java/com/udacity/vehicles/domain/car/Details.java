@@ -24,17 +24,11 @@ public class Details {
     private Manufacturer manufacturer;
 
     private Integer numberOfDoors;
-
     private String fuelType;
-
     private String engine;
-
     private Integer mileage;
-
     private Integer modelYear;
-
     private Integer productionYear;
-
     private String externalColor;
 
     public String getBody() {
