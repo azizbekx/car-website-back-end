@@ -56,8 +56,7 @@ public class CarService {
         Optional<Car> optionalCar = repository.findById(id);
         if(optionalCar.isPresent()){
             car = optionalCar.get();
-        }
-//        else throw new CarNotFoundException();
+        }else throw new CarNotFoundException();
 
 
         /**
