@@ -138,9 +138,9 @@ public class CarControllerTest {
         mvc.perform(delete("/cars/{id}", car.getId())
                 .content(json.write(car).getJson()))
                 .andExpect(status().isMethodNotAllowed());
+
+
     }
-
-
     /**
      * Creates an example Car object for use in testing.
      *
