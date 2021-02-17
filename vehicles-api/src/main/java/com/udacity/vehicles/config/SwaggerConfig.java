@@ -12,27 +12,30 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import java.util.Collections;
 
-@Configuration
 @EnableSwagger2
+@Configuration
 public class SwaggerConfig {
+
     @Bean
-    public Docket api() {
+    public Docket api(){
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
                 .apis(RequestHandlerSelectors.any())
                 .paths(PathSelectors.any())
                 .build()
-                .apiInfo(apiInfo());
+                .useDefaultResponseMessages(false);
     }
 
-    private ApiInfo apiInfo() {
+    @Bean
+    public ApiInfo apiInfo(){
         return new ApiInfo(
-                "Car REST API",
-                "This API returns a list of cars.",
-                "1.0",
-                "http://www.udacity.com/tos",
-                new Contact("Udacious Student", "www.udacity.com", "myeaddress@udacity.com"),
-                "License of API", "http://www.udacity.com/license", Collections.emptyList());
+                "Vehicle-Api",
+                "This API returns cars data",
+                "2.0",
+                "http://www.udacity.com",
+                new Contact("Azizbek Khushvakov","www.udacity.com","hello@azizbek.com"),
+                "License of API", "http://www.udacity.com/license", Collections.emptyList()
+        );
     }
 
 }
